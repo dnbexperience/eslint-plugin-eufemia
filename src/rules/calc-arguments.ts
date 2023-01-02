@@ -4,11 +4,12 @@ type MessageIds = 'order' | 'whitespaces'
 
 export default {
   meta: {
+    type: 'suggestion',
     docs: {
       description: 'Helps to keep consistent code.',
+      url: 'https://github.com/dnbexperience/eslint-plugin-eufemia/blob/main/docs/rules/calc-arguments.md',
       recommended: false,
     },
-    type: 'problem',
     fixable: 'code',
     messages: {
       order: '"{{type}}" should come before "{{prev}}".',

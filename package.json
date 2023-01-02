@@ -1,6 +1,6 @@
 {
   "name": "@eufemia/eslint-plugin",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "ESLint rules for DNB Eufemia",
   "keywords": [
     "eslint",
@@ -12,10 +12,10 @@
   "main": "dist/eufemia-eslint-plugin.cjs.js",
   "module": "dist/eufemia-eslint-plugin.esm.js",
   "scripts": {
-    "release": "npm publish",
+    "release": "yarn build && npm publish",
     "build": "preconstruct build"
   },
-  "prepublishOnly": "yarn build",
+  "prepublish": "yarn build",
   "exports": {
     ".": {
       "module": "./dist/eufemia-eslint-plugin.esm.js",
