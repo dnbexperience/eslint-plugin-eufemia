@@ -1,13 +1,13 @@
-import type { TSESTree, TSESLint } from '@typescript-eslint/utils'
+import type { TSESTree } from '@typescript-eslint/utils'
+import { createRule } from '../utils/RuleCreator'
 
-type MessageIds = 'order' | 'whitespaces'
-
-export default {
+export const rule = createRule({
+  defaultOptions: [],
+  name: 'calc-arguments',
   meta: {
     type: 'suggestion',
     docs: {
       description: 'Helps to keep consistent code.',
-      url: 'https://github.com/dnbexperience/eslint-plugin-eufemia/blob/main/docs/rules/calc-arguments.md',
       recommended: false,
     },
     fixable: 'code',
@@ -15,6 +15,7 @@ export default {
       order: '"{{type}}" should come before "{{prev}}".',
       whitespaces: 'Use function arguments instead of whitespaces.',
     },
+    schema: [],
   },
   create(context) {
     const correctOrder = [
@@ -27,7 +28,7 @@ export default {
     ]
 
     return {
-      CallExpression(node: TSESTree.CallExpression) {
+      CallExpression(node) {
         const callee = node.callee as TSESTree.Identifier
 
         if (callee.name === 'calc') {
@@ -60,10 +61,4 @@ export default {
       },
     }
   },
-} as TSESLint.RuleModule<MessageIds, Options>
-
-type Options = [
-  {
-    // someOption?: '' | ''
-  }
-]
+})

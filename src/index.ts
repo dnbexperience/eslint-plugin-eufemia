@@ -1,5 +1,5 @@
-import calcArguments from './rules/calc-arguments'
+import { rule as calcArguments } from './rules/calc-arguments'
 
-export let rules = {
+export const rules = {
   'calc-arguments': calcArguments,
 }
