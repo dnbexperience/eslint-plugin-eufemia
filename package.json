@@ -1,0 +1,32 @@
+{
+  "name": "@eufemia/eslint-plugin",
+  "version": "1.0.0",
+  "description": "ESLint rules for DNB Eufemia",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "Eufemia"
+  ],
+  "author": "Tobias Høegh <tobias.hoegh@dnb.no>",
+  "main": "dist/eslint-plugin-eufemia.cjs.js",
+  "module": "dist/eslint-plugin-eufemia.esm.js",
+  "exports": {
+    ".": {
+      "module": "./dist/eslint-plugin-eufemia.esm.js",
+      "default": "./dist/eslint-plugin-eufemia.cjs.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": "https://github.com/dnbexperience/eslint-plugin-eufemia",
+  "peerDependencies": {
+    "eslint": "6 || 7 || 8"
+  },
+  "devDependencies": {
+    "eslint": "^7.10.0"
+  }
+}
