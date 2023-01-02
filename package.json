@@ -1,6 +1,6 @@
 {
   "name": "@eufemia/eslint-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ESLint rules for DNB Eufemia",
   "keywords": [
     "eslint",
@@ -17,8 +17,8 @@
   },
   "exports": {
     ".": {
-      "module": "./dist/eslint-plugin-eufemia.esm.js",
-      "default": "./dist/eslint-plugin-eufemia.cjs.js"
+      "module": "./dist/eufemia-eslint-plugin.esm.js",
+      "default": "./dist/eufemia-eslint-plugin.cjs.js"
     },
     "./package.json": "./package.json"
   },
