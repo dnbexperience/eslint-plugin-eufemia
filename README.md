@@ -28,7 +28,7 @@ Add `@eufemia` to the plugins section of your `.eslintrc` configuration file. Yo
 }
 ```
 
-Then configure the rules you want to use under the rules section.
+Then configure the rules you want to use under the rules section:
 
 ```json
 {
@@ -40,4 +40,4 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
-- [calc-arguments](https://github.com/dnbexperience/eslint-plugin-eufemia/blob/main/docs/rules/calc-arguments.md)
+- [calc-arguments](https://github.com/dnbexperience/eslint-plugin-eufemia/blob/main/docs/rules/calc-arguments.md) (optional)
