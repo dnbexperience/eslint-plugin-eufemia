@@ -25,7 +25,7 @@ export default {
             if (type.value.includes(' ')) {
               context.report({
                 node: type,
-                message: 'Use function arguments instead of whitespaces',
+                message: 'Use function arguments instead of whitespaces.',
               })
               break
             }
@@ -37,7 +37,7 @@ export default {
               if (orderIndex > typeIndex) {
                 context.report({
                   node: type,
-                  message: `"${type.value}" should come before ${prev.value}`,
+                  message: `\`${type.value}\` should come before \`${prev.value}\`.`,
                 })
               }
             }
