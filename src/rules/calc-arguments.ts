@@ -1,9 +1,20 @@
+import type { TSESTree, TSESLint } from '@typescript-eslint/utils'
+
+type MessageIds = 'order' | 'whitespaces'
+
 export default {
   meta: {
+    docs: {
+      description: 'Helps to keep consistent code.',
+      recommended: false,
+    },
+    type: 'problem',
     fixable: 'code',
+    messages: {
+      order: '"{{type}}" should come before "{{prev}}".',
+      whitespaces: 'Use function arguments instead of whitespaces.',
+    },
   },
-
-  // @ts-ignore
   create(context) {
     const correctOrder = [
       'xx-large',
@@ -15,17 +26,18 @@ export default {
     ]
 
     return {
-      // @ts-ignore
-      CallExpression(node) {
-        if (node.callee.name === 'calc') {
+      CallExpression(node: TSESTree.CallExpression) {
+        const callee = node.callee as TSESTree.Identifier
+
+        if (callee.name === 'calc') {
           for (let i = 0, l = node.arguments.length; i < l; i++) {
-            const type = node.arguments[i]
-            const prev = node.arguments[i - 1]
+            const type = node.arguments[i] as TSESTree.StringLiteral
+            const prev = node.arguments[i - 1] as TSESTree.StringLiteral
 
             if (type.value.includes(' ')) {
               context.report({
                 node: type,
-                message: 'Use function arguments instead of whitespaces.',
+                messageId: 'whitespaces',
               })
               break
             }
@@ -37,7 +49,8 @@ export default {
               if (orderIndex > typeIndex) {
                 context.report({
                   node: type,
-                  message: `\`${type.value}\` should come before \`${prev.value}\`.`,
+                  data: { type: type.value, prev: prev.value },
+                  messageId: 'order',
                 })
               }
             }
@@ -46,4 +59,10 @@ export default {
       },
     }
   },
-}
+} as TSESLint.RuleModule<MessageIds, Options>
+
+type Options = [
+  {
+    // someOption?: '' | ''
+  }
+]
