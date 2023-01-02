@@ -33,11 +33,11 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
   "rules": {
-    "@eufemia/calc-order": "error"
+    "@eufemia/calc-arguments": "error"
   }
 }
 ```
 
 ## Supported Rules
 
-- [calc-order](https://github.com/dnbexperience/eslint-plugin-eufemia/blob/main/docs/rules/calc-order.md)
+- [calc-arguments](https://github.com/dnbexperience/eslint-plugin-eufemia/blob/main/docs/rules/calc-arguments.md)

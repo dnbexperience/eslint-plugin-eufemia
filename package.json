@@ -9,8 +9,12 @@
     "Eufemia"
   ],
   "author": "Tobias Høegh <tobias.hoegh@dnb.no>",
-  "main": "dist/eslint-plugin-eufemia.cjs.js",
-  "module": "dist/eslint-plugin-eufemia.esm.js",
+  "main": "dist/eufemia-eslint-plugin.cjs.js",
+  "module": "dist/eufemia-eslint-plugin.esm.js",
+  "scripts": {
+    "release": "yarn build && npm publish",
+    "build": "preconstruct build"
+  },
   "exports": {
     ".": {
       "module": "./dist/eslint-plugin-eufemia.esm.js",
@@ -27,6 +31,11 @@
     "eslint": "6 || 7 || 8"
   },
   "devDependencies": {
-    "eslint": "^7.10.0"
-  }
+    "@preconstruct/cli": "^2.2.2",
+    "@types/eslint": "^7.10.0",
+    "@typescript-eslint/parser": "^5.47.1",
+    "eslint": "^7.10.0",
+    "typescript": "^4.9.4"
+  },
+  "packageManager": "yarn@1.22.1"
 }
