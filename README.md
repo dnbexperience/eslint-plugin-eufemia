@@ -33,10 +33,15 @@ Then configure the rules you want to use under the rules section:
 ```json
 {
   "rules": {
-    "@eufemia/calc-arguments": "error"
+    "@eufemia/calc-arguments": [
+      "error",
+      { "calcMethodName": "optionalOtherName" }
+    ]
   }
 }
 ```
+
+The option `calcMethodName` defaults to `calc`.
 
 ## Supported Rules
 

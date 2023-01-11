@@ -1,8 +1,16 @@
 import type { TSESTree } from '@typescript-eslint/utils'
 import { createRule } from '../utils/RuleCreator'
 
-export const rule = createRule({
-  defaultOptions: [],
+type Options = [
+  {
+    calcMethodName?: string
+  }
+]
+
+type MessageIds = 'order' | 'whitespaces'
+
+export const rule = createRule<Options, MessageIds>({
+  defaultOptions: [{ calcMethodName: 'calc' }],
   name: 'calc-arguments',
   meta: {
     type: 'suggestion',
@@ -15,9 +23,19 @@ export const rule = createRule({
       order: '"{{type}}" should come before "{{prev}}".',
       whitespaces: 'Use function arguments instead of whitespaces.',
     },
-    schema: [],
+    schema: [
+      {
+        type: 'object',
+        properties: {
+          calcMethodName: {
+            type: 'string',
+          },
+        },
+        additionalProperties: false,
+      },
+    ],
   },
-  create(context) {
+  create(context, options) {
     const correctOrder = [
       'xx-large',
       'x-large',
@@ -31,7 +49,7 @@ export const rule = createRule({
       CallExpression(node) {
         const callee = node.callee as TSESTree.Identifier
 
-        if (callee.name === 'calc') {
+        if (callee.name === options?.[0]?.calcMethodName) {
           for (let i = 0, l = node.arguments.length; i < l; i++) {
             const type = node.arguments[i] as TSESTree.StringLiteral
             const prev = node.arguments[i - 1] as TSESTree.StringLiteral
