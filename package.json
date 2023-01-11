@@ -1,6 +1,6 @@
 {
   "name": "@eufemia/eslint-plugin",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "ESLint rules for DNB Eufemia",
   "keywords": [
     "eslint",
@@ -15,7 +15,8 @@
     "release": "yarn build && npm publish",
     "build": "preconstruct build",
     "test": "vitest",
-    "test:watch": "vitest --watch"
+    "test:watch": "vitest --watch",
+    "test:types": "tsc --noEmit"
   },
   "prepublish": "yarn build",
   "exports": {

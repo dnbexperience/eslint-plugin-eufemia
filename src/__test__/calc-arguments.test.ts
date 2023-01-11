@@ -14,6 +14,10 @@ it('calc-arguments', () => {
       {
         code: `calc('2rem', '1rem')`,
       },
+      {
+        code: `newName('large', 'small')`,
+        options: [{ calcMethodName: 'newName' }],
+      },
     ],
 
     invalid: [
@@ -31,6 +35,16 @@ it('calc-arguments', () => {
         errors: [
           {
             message: 'Use function arguments instead of whitespaces.',
+            type: 'Literal',
+          },
+        ],
+      },
+      {
+        code: `newName('small', 'large')`,
+        options: [{ calcMethodName: 'newName' }],
+        errors: [
+          {
+            message: '"large" should come before "small".',
             type: 'Literal',
           },
         ],
