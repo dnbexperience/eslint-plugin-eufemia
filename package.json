@@ -15,7 +15,8 @@
     "release": "yarn build && npm publish",
     "build": "preconstruct build",
     "test": "vitest",
-    "test:watch": "vitest --watch"
+    "test:watch": "vitest --watch",
+    "test:types": "tsc --noEmit"
   },
   "prepublish": "yarn build",
   "exports": {
