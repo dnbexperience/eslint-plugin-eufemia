@@ -43,6 +43,7 @@ export const rule = createRule<Options, MessageIds>({
       'medium',
       'small',
       'x-small',
+      'xx-small',
     ]
 
     return {
